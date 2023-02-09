@@ -8,8 +8,8 @@ Are you a Twitch streamer? Getting into JS dev and looking for a fun project? Or
 My motivation for this template was to provide a simple means of getting started with a cross-platform, self-hosted chatbot (and if you're getting started in JS dev, also provide some good starting examples of API integrations and OAuth authentication). A few software installations here, some app registrations there, and you're all set!
 ## Special Thanks
 
- - [CasualElephant](https://twitch.tv/casualelephant) - A good friend IRL and streamer, whose coding streams are what got me started experimenting with streaming and JS Dev in the first place.
- - [Instafluff](https://twitch.tv/instafluff) - Streamer and developer of the [ComfyJS](https://github.com/instafluff/ComfyJS) Twitch Chat Module, which I forked for the chatbot's Twitch integration.
+ - [CasualElephant](https://twitch.tv/casualelephant) - A good friend IRL and great Twitch streamer, whose coding streams are what got me started experimenting with streaming and JS Dev in the first place.
+ - [Instafluff](https://twitch.tv/instafluff) - Twitch streamer and developer of the [ComfyJS](https://github.com/instafluff/ComfyJS) Twitch Chat Module, which I forked for the chatbot's Twitch integration.
 
 ## Prerequisites
 
@@ -132,7 +132,7 @@ The rest is up to you to play with and add to. However, if you gather some addit
 - Copy the new key to the WEATHER field in the .env file (note: the OpenWeatherMap key does not immediately give access to the API, it takes a while for it to fully propagate and allow the bot to run queries.)
 
 After adding this key, on the next launch of the chatbot you will have access to the following commands:
-- !weather - Gets the weather for the <City> / <City>,<Country> / <City>,<US State>,US specified after the command.
+- !weather - Gets the weather for the \<City\> / \<City\>,\<Country\> / \<City\>,\<US State\>,US specified after the command.
   - See Usage section of this document, or run "!weather -help" in your channel's chat for more details.
 
 #### Dictionary Lookup / Custom Dictionary Words [Mirriam-Webster Dictionary API]
@@ -153,7 +153,7 @@ After adding this key, on the next launch of the chatbot you will have access to
 
 #### Spotify Song Monitor [Spotify Web API]
 
-Note: While all of the previous APIs have free tiers, The Spotify Web API requires a Spotify Premium subscription (though if you are using Spotify for your on-stream music, it is likely you have Premium anyway. Not choosing your tracks / playlist comes with the risk of playing DRM-protected songs that will get you banned.)
+Note: While all of the previous APIs have free tiers, The Spotify Web API requires a Spotify Premium subscription.
 
 - Log into your Spotify account on the [Spotify Developer Login Page](https://developer.spotify.com/dashboard/login)
 - Click the "Create an App" button, input a name and description for your app, agree to the terms of service, and then click "Create"
@@ -168,7 +168,7 @@ Note: While all of the previous APIs have free tiers, The Spotify Web API requir
 
 ![Spotify Client ID / Secret](https://helrayzr.github.io/twitch-nodejs-chatbot-template/assets/Screenshot-SpotifyClientIDSecret.png)
 
-- Start up your bot and go to [https://localhost:**8080**/setup](#). You will now notice a new link - Authorize Spotify. Click that link, authorize the app to connect via your account, and the results will be in your tokens.json file. Move the refresh token to SPOTIFYREFRESH in the .env file and remove the refresh token and code from the tokens.json (for security purposes). 
+- Start up your bot and go to [https://localhost:**8080**/oauth/setup](#). You will now notice a new link - Authorize Spotify. Click that link, authorize the app to connect via your account, and the results will be in your tokens.json file. Move the refresh token to SPOTIFYREFRESH in the .env file and remove the refresh token and code from the tokens.json (for security purposes). 
 
 ![Oauth Setup Spotify Link](https://helrayzr.github.io/twitch-nodejs-chatbot-template/assets/Screenshot-OAuthSetupSpotify.png)
 
@@ -176,7 +176,7 @@ Note: While all of the previous APIs have free tiers, The Spotify Web API requir
 
 With this key in place, you can now use the following commands:
 - !songmonitor - starts a monitor that will check Spotify at the end of each song for what you are currently listening to.
-- !currentsong - displays in chat the name of the current song playing.
+- !song - displays in chat the name of the current song playing.
 - !lastsong - displays in chate the name of the last song played.
 
 The results are stored in 2 files: CurrentSongArtist.txt and tracks.json. In OBS, if you create a new Text on your chosen scene you can point it to the CurrentSongArtist.txt file and it will show the track on your overlay.
@@ -184,20 +184,20 @@ The results are stored in 2 files: CurrentSongArtist.txt and tracks.json. In OBS
 
 ### Base Commands
 #### Add a moderator for the bot
-```bash
+```
 !addmod Helrayzr
 ```
 #### Remove a moderator from the bot
-```bash
+```
 !removemod Helrayzr
 ```
 #### List bot moderators
-```bash
+```
 !listmods
 ```
 
 #### Send a "Be Right Back" message to chat
-```bash
+```
 !brb
 !brb <# of minutes until you return>
 ```
@@ -212,38 +212,44 @@ The results are stored in 2 files: CurrentSongArtist.txt and tracks.json. In OBS
 
 #### Syntax
 
-```bash
+```
 !translate <Message>
 !translate -language:<Language Name / Code> <Message>
 ```
 
 #### Examples
-```bash
+```
 !translate Quiero traducir este mensaje al inglés.
 !translate -language:es I want to translate this message to Spanish.
 !translate -language:Russian I want to translate this message to Russian.
 ```
 
 ### WeatherBot: 
+#### Note
+- Viewers in chat can see a description of how to use this command by typing
+```
+!weather -help
+```
+
 #### Syntax
-```bash
+```
 !weather <City Name>
 !weather <City Name>,<Country Code / Name>
 !weather <City Name>,<US State Code / Name>,US
 ```
 
 #### Examples
-```bash
+```
 !weather Liverpool
 !weather Dublin,Ireland
 !weather Liverpool,GB
 !weather Portland,Maine,US
-!weather San Antonio,TX,US
+!weather Minneapolis,MN,US
 ```
 
 ### Dictionary Lookup / Custom Dictionary
 #### Syntax
-```bash
+```
 !definition <Word> <Definition>
 !suggestdef <Word> <Definition>
 !approvedef <Word>
@@ -252,7 +258,7 @@ The results are stored in 2 files: CurrentSongArtist.txt and tracks.json. In OBS
 ```
 
 #### Examples
-```bash
+```
 !definition Coffee
 !suggestdef Helrayzr A Twitch streamer and coding enthusiast
 !approvedef Helrayzr
@@ -262,17 +268,17 @@ The results are stored in 2 files: CurrentSongArtist.txt and tracks.json. In OBS
 
 ### Spotify Song Monitor
 #### Start monitoring songs being played
-```bash
+```
 !songmonitor
 ```
 Note: Song Monitoring stops when no song is detected, which will happen after pausing for a period of time.
 
 #### Get the current song name and artist
-```bash
+```
 !song
 ```
 #### Get the last song name and artist
-```bash
+```
 !lastsong
 ```
 
@@ -285,4 +291,3 @@ Note: Song Monitoring stops when no song is detected, which will happen after pa
 [OpenWeatherMap API Reference](https://openweathermap.org/current)
 
 [Mirriam-Webster Dictionary API Reference](https://dictionaryapi.com/products/api-collegiate-dictionary)
-
