@@ -1,0 +1,15 @@
+{
+	"channel": "Helrayzr",
+	"botname": "h3lbot",
+	"port": 8080,
+	"mods": [
+		"helrayzr"
+	],
+	"modcommands": [
+		"addmod",
+		"removemod",
+		"approvedef",
+		"rejectdef",
+		"removedef"
+	]
+}

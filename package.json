@@ -1,0 +1,33 @@
+{
+  "//1": "describes your app and its dependencies",
+  "//2": "https://docs.npmjs.com/files/package.json",
+  "//3": "updating this file will download and update your packages",
+  "name": "twitch-nodejs-chatbot-template",
+  "version": "1.0.0",
+  "description": "A Twitch Chatbot app template built on a modified version of the Comfy.js app, requires some setup. See README.MD",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@helrayzr/comfyjs-botoauthmod": "^1.1.16",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "tmi.js": "^1.8.5"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://github.com/helrayzr/twitch-nodejs-chatbot-template"
+  },
+  "license": "GNU",
+  "keywords": [
+    "node",
+    "comfy.js",
+    "twitch",
+    "chatbot"
+  ]
+}
