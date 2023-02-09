@@ -180,7 +180,109 @@ With this key in place, you can now use the following commands:
 - !lastsong - displays in chate the name of the last song played.
 
 The results are stored in 2 files: CurrentSongArtist.txt and tracks.json. In OBS, if you create a new Text on your chosen scene you can point it to the CurrentSongArtist.txt file and it will show the track on your overlay.
-
 ## Usage/Examples
 
-Coming soon!
+### Base Commands
+#### Add a moderator for the bot
+```bash
+!addmod Helrayzr
+```
+#### Remove a moderator from the bot
+```bash
+!removemod Helrayzr
+```
+#### List bot moderators
+```bash
+!listmods
+```
+
+#### Send a "Be Right Back" message to chat
+```bash
+!brb
+!brb <# of minutes until you return>
+```
+
+### Google Translate
+#### Notes
+- Default language set to English
+- Viewers in chat can see a description of how to use this command by typing
+```
+!translate -help
+```
+
+#### Syntax
+
+```bash
+!translate <Message>
+!translate -language:<Language Name / Code> <Message>
+```
+
+#### Examples
+```bash
+!translate Quiero traducir este mensaje al inglés.
+!translate -language:es I want to translate this message to Spanish.
+!translate -language:Russian I want to translate this message to Russian.
+```
+
+### WeatherBot: 
+#### Syntax
+```bash
+!weather <City Name>
+!weather <City Name>,<Country Code / Name>
+!weather <City Name>,<US State Code / Name>,US
+```
+
+#### Examples
+```bash
+!weather Liverpool
+!weather Dublin,Ireland
+!weather Liverpool,GB
+!weather Portland,Maine,US
+!weather San Antonio,TX,US
+```
+
+### Dictionary Lookup / Custom Dictionary
+#### Syntax
+```bash
+!definition <Word> <Definition>
+!suggestdef <Word> <Definition>
+!approvedef <Word>
+!rejectdef <Word>
+!removedef <Word>
+```
+
+#### Examples
+```bash
+!definition Coffee
+!suggestdef Helrayzr A Twitch streamer and coding enthusiast
+!approvedef Helrayzr
+!rejectdef Helrayzr
+!removedef Helrayzr
+```
+
+### Spotify Song Monitor
+#### Start monitoring songs being played
+```bash
+!songmonitor
+```
+Note: Song Monitoring stops when no song is detected, which will happen after pausing for a period of time.
+
+#### Get the current song name and artist
+```bash
+!song
+```
+#### Get the last song name and artist
+```bash
+!lastsong
+```
+
+## API References
+
+[Twitch API Reference](https://dev.twitch.tv/docs/api/reference/)
+
+[Spotify Web API Reference](https://developer.spotify.com/documentation/web-api/reference/#/)
+
+[OpenWeatherMap API Reference](https://openweathermap.org/current)
+
+[Mirriam-Webster Dictionary API Reference](https://dictionaryapi.com/products/api-collegiate-dictionary)
+
