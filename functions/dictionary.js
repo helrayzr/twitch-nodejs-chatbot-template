@@ -63,7 +63,7 @@ function removeDefinition(message,theUser,modsList) {
 	let numdefs = customdefinitions[idx].Definitions.length;
 	customdefinitions.splice(idx,1);
 	funcs.updateJSON("./functions/definitions.json",MyDictionary);
-	return `${word} and its ${numdef} definition${numdefs > 1 ? 's were' : ' was'} removed from the custom dictionary.`;	
+	return `${word} and its ${numdefs} definition${numdefs > 1 ? 's were' : ' was'} removed from the custom dictionary.`;	
 }
 
 function listPendingDefinitions() {
